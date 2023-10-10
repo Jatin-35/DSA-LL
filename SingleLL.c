@@ -224,7 +224,7 @@ void delete(){
 void reverse(){
 
     if(first == NULL){
-           printf("Empty Linked List");
+           printf("\nEmpty Linked List\n");
     }
 
     else{
@@ -274,7 +274,7 @@ void update(int p , int v){
         }while(i<p  && ptr != NULL);
 
         if(ptr == NULL || i != p){
-            printf("Position not found");
+            printf("\nPosition not found\n");
         }
 
         else{
@@ -286,9 +286,52 @@ void update(int p , int v){
 
 }
 
+
+void search(int s){
+
+    if(first == NULL){
+        printf("Linked List Empty. \n");
+    }
+    
+    else 
+    {
+        int flag =0;
+        ptr = first;
+
+        for(int i=0;ptr -> next != NULL ;i++)
+        {
+            if(ptr -> data == s)
+            {
+               printf("Element found at position %d.",i+1);
+               
+               printf("\nSearching Done. \n");
+               flag = 0;
+                break;
+            }
+
+            else
+            {
+               flag = 1;
+            }
+            ptr = ptr -> next;
+
+        }
+
+        if(flag == 1)
+        {
+            printf("\nElement not found. \n");
+        }
+
+        
+
+    }
+
+
+}
+
 int main(){
 
-    int x, choice , p ,v;
+    int x, choice , p ,v,s;
     
     // Creating a Node of a  Single Linked List
     
@@ -378,11 +421,13 @@ int main(){
             update(p,v);
             break;
 
-        // case 8 :
-        //     search();
-        //     break;
-
         case 8 :
+            printf("Enter the element to Search : \n");
+            scanf("%d",&s);
+            search(s);
+            break;
+
+        case 9 :
             exit(1);
             break;
 
